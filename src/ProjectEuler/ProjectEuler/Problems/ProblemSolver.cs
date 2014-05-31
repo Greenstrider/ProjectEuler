@@ -18,6 +18,9 @@ namespace ProjectEuler
                 case 2:
                     problem2();
                     break;
+                case 3:
+                    problem3();
+                    break;
                 default:
                     Console.WriteLine("Problem does not exists or is not solved");
                     break;                    
@@ -64,7 +67,36 @@ namespace ProjectEuler
             }
 
             Console.WriteLine("Solution: " + evenTerms.Sum());
+        }
+        
+        // The prime factors of 13195 are 5, 7, 13 and 29.
+        // What is the largest prime factor of the number 600851475143 ?
+        private void problem3()
+        {
+            Int64 num = 600851475143;
 
+            for (Int64 i = 2; i < num; i++)
+            {
+                if (isPrime(i))
+                {
+                    while (num % i == 0)
+                    {
+                        num = num / i;
+                    }
+
+                }
+            }
+            Console.WriteLine("Solution: " + num); 
+        }
+
+        private bool isPrime(Int64 num)
+        {
+            for (Int64 i = 2; i < num; i++)
+            {
+                if (num % i == 0)
+                    return false;
+            }
+            return true;
         }
     }
 }
