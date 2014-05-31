@@ -24,6 +24,9 @@ namespace ProjectEuler
                 case 4:
                     problem4();
                     break;
+                case 5:
+                    problem5();
+                    break;
                 default:
                     Console.WriteLine("Problem does not exists or is not solved");
                     break;                    
@@ -127,5 +130,35 @@ namespace ProjectEuler
             Console.WriteLine("Solution: " + palindrom.Max());
         }
 
+        // 2520 is the smallest number that can be divided by each of the numbers from 1 to 10 without any remainder.
+        // What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
+
+        private void problem5()
+        {
+            bool valueFound = false;
+            int val = 20;
+            bool isSafe = false;
+
+            while(!valueFound)
+            {
+                val++;
+                isSafe = true;
+
+                for (int i = 2; i <= 20; i++)
+                {
+                    if (val % i != 0)
+                    {
+                        isSafe = false;
+                        valueFound = false;
+                        break;
+                    }
+                }
+
+                if(isSafe == true)
+                    valueFound = true;
+            }
+
+            Console.WriteLine("Solution: " + val);
+        }
     }
 }
