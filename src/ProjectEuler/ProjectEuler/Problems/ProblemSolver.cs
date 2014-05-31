@@ -30,6 +30,9 @@ namespace ProjectEuler
                 case 6:
                     problem6();
                     break;
+                case 7:
+                    problem7();
+                    break;
                 default:
                     Console.WriteLine("Problem does not exists or is not solved");
                     break;                    
@@ -188,6 +191,26 @@ namespace ProjectEuler
             val = sqrOfSum - sumOfSqr;
 
             Console.WriteLine("Solution: " + val);
+        }
+
+        // By listing the first six prime numbers: 2, 3, 5, 7, 11, and 13, we can see that the 6th prime is 13.
+        // What is the 10 001st prime number?
+
+        private void problem7()
+        {
+            int numOfPrimes = 0;
+            int val = 1;
+
+            while (numOfPrimes < 10001)
+            {
+                val++;
+
+                if (isPrime(val))
+                    numOfPrimes++;
+            }
+
+            Console.WriteLine("Solution: " + val);
+
         }
         
     }
