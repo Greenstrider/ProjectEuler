@@ -36,6 +36,9 @@ namespace ProjectEuler
                 case 8:
                     problem8();
                     break;
+                case 9:
+                    problem9();
+                    break;
                 default:
                     Console.WriteLine("Problem does not exists or is not solved");
                     break;                    
@@ -255,6 +258,34 @@ namespace ProjectEuler
                 adjacent.Add(sum);
             }
             Console.WriteLine("Solution: " + adjacent.Max());
+        }
+
+        // A Pythagorean triplet is a set of three natural numbers, a < b < c, for which,
+        // a2 + b2 = c2
+        // For example, 32 + 42 = 9 + 16 = 25 = 52.
+        // There exists exactly one Pythagorean triplet for which a + b + c = 1000.
+        // Find the product abc.
+
+        private void problem9()
+        {
+            int c = 0;
+            int product = 0;
+
+            for (int a = 0; a < 1000 / 3; a++)
+            {
+                for (int b = 0; b < 1000 / 2; b++)
+                {
+                    c = 1000 - a - b;
+
+                    if (Math.Pow(c, 2) == Math.Pow(a, 2) + Math.Pow(b,2))
+                        if (a + b + c == 1000)
+                        {
+                            product = a * b * c;
+                            break;
+                        }
+                }
+            }
+            Console.WriteLine("Solution: " + product);
         }
     }
 }
