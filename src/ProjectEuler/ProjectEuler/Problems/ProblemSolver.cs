@@ -27,6 +27,9 @@ namespace ProjectEuler
                 case 5:
                     problem5();
                     break;
+                case 6:
+                    problem6();
+                    break;
                 default:
                     Console.WriteLine("Problem does not exists or is not solved");
                     break;                    
@@ -160,5 +163,32 @@ namespace ProjectEuler
 
             Console.WriteLine("Solution: " + val);
         }
+
+        // The sum of the squares of the first ten natural numbers is,
+        // 12 + 22 + ... + 102 = 385
+        // The square of the sum of the first ten natural numbers is,
+        // (1 + 2 + ... + 10)2 = 552 = 3025
+        // Hence the difference between the sum of the squares of the first ten natural numbers and the square of the sum is 3025 − 385 = 2640.
+        // Find the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum.
+
+        private void problem6()
+        {
+            double sumOfSqr = 0;
+            double sqrOfSum = 0;
+            double val = 0;
+
+            for (int i = 1; i <= 100; i++)
+            {
+                sumOfSqr += Math.Pow(i, 2);
+                sqrOfSum += i;
+            }
+
+            sqrOfSum = Math.Pow(sqrOfSum, 2);
+
+            val = sqrOfSum - sumOfSqr;
+
+            Console.WriteLine("Solution: " + val);
+        }
+        
     }
 }
