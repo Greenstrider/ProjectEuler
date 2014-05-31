@@ -39,6 +39,9 @@ namespace ProjectEuler
                 case 9:
                     problem9();
                     break;
+                case 10:
+                    problem10();
+                    break;
                 default:
                     Console.WriteLine("Problem does not exists or is not solved");
                     break;                    
@@ -286,6 +289,31 @@ namespace ProjectEuler
                 }
             }
             Console.WriteLine("Solution: " + product);
+        }
+
+        // The sum of the primes below 10 is 2 + 3 + 5 + 7 = 17.
+        // Find the sum of all the primes below two million.
+
+        private void problem10()
+        {
+            bool[] sieve = new bool[6000000];
+            List<double> primes = new List<double>();
+
+            for (int i = 2; i < sieve.Length; i++)
+                sieve[i] = true;
+
+            for (int i = 2; Math.Pow(i, 2) < sieve.Length; i++)
+            {
+                for (int j = (int)Math.Pow(i, 2); j < sieve.Length; j += i)
+                    sieve[j] = false;
+            }
+
+            for (int i = 2; i < sieve.Length; i++)
+                if (sieve[i])
+                    primes.Add(i);
+
+            Console.WriteLine("Solution: " + primes.Sum());
+
         }
     }
 }
