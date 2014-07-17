@@ -58,6 +58,9 @@ namespace ProjectEuler
                 case 15:
                     problem15();
                     break;
+                case 16:
+                    problem16();
+                    break;
                 default:
                     Console.WriteLine("Problem does not exists or is not solved");
                     break;                    
@@ -752,6 +755,20 @@ namespace ProjectEuler
             }
 
             Console.WriteLine("Solution: " + paths[NUM - 1, NUM - 1]);
+        }
+
+        //215 = 32768 and the sum of its digits is 3 + 2 + 7 + 6 + 8 = 26.
+        //What is the sum of the digits of the number 21000?
+
+        private void problem16()
+        {
+            BigInteger val = (BigInteger) Math.Pow(2, 1000);
+            int sum = 0;
+
+            foreach (char c in val.ToString())
+                sum += int.Parse(c.ToString());
+
+            Console.WriteLine("Solution: " + sum);
         }
     }
 }
