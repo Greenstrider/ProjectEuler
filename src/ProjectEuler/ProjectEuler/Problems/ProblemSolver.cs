@@ -55,6 +55,9 @@ namespace ProjectEuler
                 case 14:
                     problem14();
                     break;
+                case 15:
+                    problem15();
+                    break;
                 default:
                     Console.WriteLine("Problem does not exists or is not solved");
                     break;                    
@@ -725,6 +728,30 @@ namespace ProjectEuler
             }
 
             Console.WriteLine("Solution: " + startingNum);
+        }
+
+        //Starting in the top left corner of a 2×2 grid, and only being able to move to the right and down, there are exactly 6 routes to the bottom right corner.
+        //How many such routes are there through a 20×20 grid?
+
+        private void problem15()
+        {
+            int NUM = 21;
+            double[,] paths = new double[NUM, NUM];
+
+            for (int row = 0; row < NUM; row++)
+            {
+                for (int col = 0; col < NUM; col++)
+                {
+                    if (row == 0)
+                        paths[row, col] = 1;
+                    else if (col == 0)
+                        paths[row, col] = 1;
+                    else
+                        paths[row, col] = paths[row - 1, col] + paths[row, col - 1];
+                }
+            }
+
+            Console.WriteLine("Solution: " + paths[NUM - 1, NUM - 1]);
         }
     }
 }
